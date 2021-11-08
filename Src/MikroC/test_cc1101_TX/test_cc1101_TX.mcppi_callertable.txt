@@ -1,0 +1,27 @@
+main
+	__CC2DW
+	Soft_SPI_Init
+	fn_cc1101_init
+		Soft_SPI_Write
+			Delay_1us
+			Delay_22us
+		fn_cc1101_strob
+			Soft_SPI_Write
+				Delay_1us
+				Delay_22us
+	ManInit
+	fn_cc1101_strob
+		Soft_SPI_Write
+			Delay_1us
+			Delay_22us
+	Button
+		Delay_500us
+	ManBufAddByte
+	ManTransmitData
+		ManTransmitBit
+			ManPause
+		ManTransmitByte
+			ManCheckSumm
+			ManTransmitBit
+				ManPause
+interrupt

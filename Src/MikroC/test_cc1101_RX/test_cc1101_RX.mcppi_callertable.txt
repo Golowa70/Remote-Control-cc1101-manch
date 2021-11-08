@@ -1,0 +1,28 @@
+main
+	__CC2DW
+	PWM1_Init
+	PWM1_Start
+	PWM1_Set_Duty
+		Mul_16x16_U
+	PWM2_Init
+	PWM2_Start
+	PWM2_Set_Duty
+		Mul_16x16_U
+	Soft_SPI_Init
+	fn_cc1101_init
+		Soft_SPI_Write
+			Delay_1us
+			Delay_22us
+		fn_cc1101_strob
+			Soft_SPI_Write
+				Delay_1us
+				Delay_22us
+	fn_cc1101_strob
+		Soft_SPI_Write
+			Delay_1us
+			Delay_22us
+	ManReceiveStart
+	ManRcvDataCheck
+interrupt
+	CheckSumm
+	ManReceiveStop
